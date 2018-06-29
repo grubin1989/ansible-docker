@@ -2,3 +2,5 @@
 docker_gpg_key: 58118E89F3A912897C070ADBF76221572C52609D
 key_server: hkp://p80.pool.sks-keyservers.net:80
 docker_repo_distribution: "{{ ansible_distribution | lower }}"
+http_proxy: http://127.0.0.1:8118
+https_proxy: http://127.0.0.1:8118

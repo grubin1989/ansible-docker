@@ -4,7 +4,7 @@
   any_errors_fatal: true
   become: true
   roles:
-    - ansible-role-docker
+    - docker
   vars:
     docker_compose: false
     docker_version: latest

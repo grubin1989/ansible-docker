@@ -24,11 +24,17 @@
       apt_key:
         url: "https://download.docker.com/linux/{{ docker_repo_distribution }}/gpg"
         state: present
+      environment:
+        http_proxy: "{{http_proxy}}"
+        https_proxy: "{{https_proxy}}"
 
     - name: add docker repository | Debian
       apt_repository:
         repo: "deb [arch=amd64] https://download.docker.com/linux/{{ docker_repo_distribution }} {{ ansible_distribution_release }} stable"
         state: present
+      environment:
+        http_proxy: "{{http_proxy}}"
+        https_proxy: "{{https_proxy}}"
   when: ansible_os_family == "Debian"
 
 - name: add docker repository | RedHat
@@ -48,6 +54,9 @@
   register: __ret
   retries: 10
   until: __ret is succeeded
+  environment:
+    http_proxy: "{{http_proxy}}"
+    https_proxy: "{{https_proxy}}"
   notify:
     - restart docker
 

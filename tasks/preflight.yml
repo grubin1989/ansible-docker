@@ -12,3 +12,6 @@
 - name: apply default daemon config
   set_fact:
     docker_json: "{{ docker_default_config | combine(docker_config | default({})) }}"
+
+- debug:
+    msg: "debug {{ docker_json }}"

@@ -6,12 +6,16 @@ docker_http_proxy: ""
 docker_https_proxy: ""
 docker_no_proxy: ""
 
-docker_version: "17.06"
+docker_version: "18.03.1"
 # docker_version: "latest"
 # docker_upgrade: false
 
 docker_default_config:
-  storage-driver: devicemapper
+  storage-driver: aufs
   log-level: info
+  live-restore: true
+  dns:
+    - 192.168.1.1
+    - 8.8.8.4
 
 docker_users: []
